@@ -16,3 +16,52 @@ Part 1
 # It works now
 
 
+Adding Dependency
+>> rm go.mod
+>> go mod init spykins.com/learn-go
+>> go get rsc.io/quote
+# create go.sum
+>> go test 
+>> go list -m all
+
+
+// commit go.mod and go.sum in Version control
+
+>> go list -m all
+spykins.com/learn-go
+golang.org/x/text v0.0.0-20170915032832-14c0d48ead0c
+rsc.io/quote v1.5.2
+rsc.io/sampler v1.3.0
+
+
+We want to upgrade golang.org/x/text v0.0.0-20170915032832-14c0d48ead0c
+
+>> go get golang.org/x/text
+>> go list -m all
+spykins.com/learn-go
+golang.org/x/text v0.3.7
+golang.org/x/tools v0.0.0-20180917221912-90fa682c2a6e
+rsc.io/quote v1.5.2
+rsc.io/sampler v1.3.0
+
+>> go test
+# Still works
+
+>> go get rsc.io/sampler #upgrading 
+
+>> o test
+--- FAIL: TestHello (0.00s)
+    hello_test.go:8: Hello() = "99 bottles of beer on the wall, 99 bottles of beer, ...", want "Hello, world."
+FAIL
+exit status 1
+FAIL    spykins.com/learn-go    0.004s
+
+
+>> go list -m -versions rsc.io/sampler   # list all versions of sampler
+rsc.io/sampler v1.0.0 v1.2.0 v1.2.1 v1.3.0 v1.3.1 v1.99.99
+
+>> go get rsc.io/sampler@v1.3.1
+
+>> go test
+PASS
+ok      spykins.com/learn-go    0.005s
