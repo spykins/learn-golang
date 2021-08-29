@@ -1,3 +1,4 @@
 .vagrant
 play/*
 golang_code/template*.go
+golang_code/play/*

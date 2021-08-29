@@ -1,0 +1,18 @@
+https://go.dev/blog/using-go-modules 
+
+
+Part 1
+------------------------------
+>> go mod init example.com/username/repo
+# creates go.mod file 
+
+>> go test
+# It works now
+
+>> rm go.mod
+
+>> go mod init spykins.com/learn-go
+>> go test
+# It works now
+
+
