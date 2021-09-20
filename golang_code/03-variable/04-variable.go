@@ -25,8 +25,4 @@ func main() {
 
   var variable5 int = 100
   fmt.Println(variable5)
-
-
-
-
 }

@@ -17,9 +17,13 @@ $script = <<-SCRIPT
 # installing golang
     wget -O /tmp/go1.17.linux-amd64.tar.gz https://golang.org/dl/go1.17.linux-amd64.tar.gz /tmp
     rm -rf /usr/local/go && tar -C /usr/local -xzf /tmp/go1.17.linux-amd64.tar.gz
-    echo 'export PATH=$PATH:/usr/local/go/bin' >> /home/ubuntu/.bashrc
-    echo 'export PATH=$PATH:/usr/local/go/bin' >> /home/vagrant/.bashrc
+    # echo 'export PATH=$PATH:/usr/local/go/bin' >> /home/ubuntu/.bashrc
+    # echo 'export PATH=$PATH:/usr/local/go/bin' >> /home/vagrant/.bashrc
 
+    sudo echo 'export PATH=$PATH:/usr/local/go/bin' >> /etc/bash.bashrc
+    
+ # installing git
+    sudo apt -y install git
 SCRIPT
 Vagrant.configure("2") do |config|
 

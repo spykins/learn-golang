@@ -1,0 +1,107 @@
+Go workspace 
+
+   * one folder - any name, any location 
+      * bin
+      * pkg
+      * src 
+           * GitHub.com 
+                * <github.com username>
+                   * folder with code for project/repo
+                   * folder with code for project/repo
+                   * ---
+		   * folder with code for project/repo
+
+
+    * namespacing 
+    * go get 
+        * package management
+
+    * GOPATH
+        * points to your go workspace
+
+    * GOROOT
+        * points to your binary installation of Go
+
+
+
+# Setting up Go Work space 
+
+  >> cd ~/Document
+  >> mkdir goworkspace
+  >> cd goworkspace
+  >> mkdir bin pkg src
+
+# Ensure the GOPATH is pointing to that workspace 
+
+   Workspace in ~/Document/goworkspace 
+  
+
+>> go env
+GOENV="/home/vagrant/.config/go/env"
+GOEXE=""
+GOEXPERIMENT=""
+GOFLAGS=""
+GOHOSTARCH="
+---
+GOPATH="/home/vagrant/go"
+---
+# configure the environment
+
+To set gopath ********************
+>> mkdir -p /home/vagrant/Document/goworkspace
+>> mkdir -p /home/vagrant/Document/goworkspace/src 
+>> mkdir -p /home/vagrant/Document/goworkspace/bin
+>> mkdir -p /home/vagrant/Document/goworkspace/pkg
+
+
+
+tee is like >>
+
+>> sudo echo 'export GOPATH=/home/vagrant/Document/goworkspace' | sudo tee -a /etc/bash.bashrc
+
+Note
+To avoid printing data back to the console, redirect the output to /dev/null.
+
+
+sudo echo 'export GOPATH=/home/vagrant/Document/goworkspace' | sudo tee -a /etc/bash.bashrc > /dev/null
+
+>> source /etc/bash.bashrc 
+
+>> echo 'export PATH=$GOPATH:$PATH' | sudo tee -a /etc/bash.bashrc > /dev/null
+
+**************** Ignore ****************
+NB
+Check difference between 
+echo 'export PATH=$GOPATH:$PATH'
+export PATH=$GOPATH:$PATH
+vagrant@vagrant-ubuntu-trusty-64:~$ echo "export PATH=$GOPATH:$PATH"
+export PATH=/home/vagrant/Document/goworkspace:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/go/bin:/usr/local/go/bin
+**************** Ignore ****************
+
+
+>> source /etc/bash.bashrc 
+
+
+
+*********** creatint file 
+
+>> cd /home/vagrant/Document/
+>> mkdir -p goworkspace/src/temp
+
+>> vim hello.go
+package main
+
+import "fmt"
+
+func main() {
+  fmt.Println("Hello again")
+}
+
+>> go run hello.go 
+
+>> go get 
+
+  go get
+GO111MODULE=off go get -d github.com/spykins/learn-golang
+
+
